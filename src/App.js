@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
-import TipCalculator from './components/tipcalculator';
+import Main from './components/mainComponent';
+import { BrowserRouter } from 'react-router-dom';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">        
-          <TipCalculator/>
+      <div className="App">  
+      <BrowserRouter>   
+         <Main/>
+
+      </BrowserRouter>   
       </div>
     );
   }
