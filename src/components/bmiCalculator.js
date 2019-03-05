@@ -21,6 +21,7 @@ class BmiCalculator extends Component {
     }
     
     handleChange(event) {
+        
         var name  = event.target.name;
         this.setState({ [name] : event.target.value });
         console.log(this.state.weight);
