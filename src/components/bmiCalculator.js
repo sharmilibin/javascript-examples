@@ -10,26 +10,24 @@ class BmiCalculator extends Component {
             age: '',
             bmi: '',
             optimalweight: '',
-            message: ''
-
-
-
-        }
+            message: '',
+            weightmetric: 'Kg'
+      }
         
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
     
-    handleChange(event) {
-        
+    handleChange(event) { 
         var name  = event.target.name;
+
         this.setState({ [name] : event.target.value });
-        console.log(this.state.weight);
+        
     }
 
     handleSubmit() {
         var height = this.state.height;
-        const weight = this.state.weight;
+        const weight = this.state.weightmetric === 'Lb' ? 0.4536*this.state.weight : this.state.weight;
         const gender = this.state.gender;
         const age = this.state.age;
         var bmi;
@@ -73,15 +71,15 @@ class BmiCalculator extends Component {
                 <div>
                     Enter your weight:<input type="number" pattern="[0-9]*" inputMode="numeric" name="weight" onChange={this.handleChange}
                     ></input>
-                    <select >
-                        <option value="lbs">Lbs</option>
-                        <option value="Kgs">Kgs</option>
+                    <select name="weightmetric" onChange={this.handleChange} value={this.state.weightmetric} >
+                        <option value="Lb">Lb</option>
+                        <option value="Kg">Kg</option>
                     </select>
                 </div>
                 <div>
                     Enter Your Height:<input type="number" pattern="[0-9]*" inputMode="numeric" name="height" onChange={this.handleChange}
                     ></input>
-                    <select >
+                    <select>
                         <option value="cm">CM</option>
                         <option value="ft">Ft</option>
                     </select>

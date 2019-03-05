@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { Container, Wrapper, NavTabLayout, NavTab } from './styles';
-import TipCalculator from './tipcalculator';
-import BmiCalculator from './bmiCalculator';
-
 
 class Header extends Component{
    
